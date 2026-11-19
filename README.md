@@ -1,6 +1,6 @@
-# RoboCup Medical Robot — Vision Subsystem
+# Medical-Service Robot — Vision Subsystem
 
-Vision and result-publication code for a RoboCup medical-service ("medicine rounds") robot,
+Vision and result-publication code for a medical-service ("medicine rounds") robot,
 written for the 2026 competition season. The robot has to read a **QR code at the nursing
 station** to learn which beds to visit in which order, then read a **Code128 barcode** on the
 medication box at each bed and report what it found.
@@ -146,7 +146,7 @@ host/                          host-side programs (run on the vehicle PC)
   curate_video.py              build a sample set from a screen recording
   app.py                       deployment entry: config validation, run directory, preview/headless
   config.example.json          template config for app.py
-  robocup-vision.service.example  systemd unit template
+  vision.service.example       systemd unit template
 firmware/                      board-side code for the OpenMV Cam H7 Plus
   main.py                      bench entry: both decoders per frame, confirmation gates, overlay
   config.py                    shared bench parameters (exposure, ROI, confirm counts)
@@ -358,3 +358,13 @@ Not mine, and not in this repository: navigation and localisation, the ROS 2 nod
 these results, bed association as part of a whole-vehicle task graph, chassis and motor control,
 and the competition scheduling logic. The two-stop order produced here is an order heuristic
 published as `provisional`; the vehicle side decides what to do with it.
+
+## Build log
+
+Work ran from 2026-09-22 to 2026-10-16. The commit history is condensed into a single snapshot, so the sequence is summarised here.
+
+- **Bench and printable codes (09-22 to 09-23).** Dual-code scanner bench build, a nine-page printable code sheet, and twenty manual exposure samples recorded as evidence.
+- **Optics and exposure (09-27 to 09-30).** UART connector identified, exposure trials run, focus distance measured, VGA preview restored, and exposure pinned to the values from a bundle that actually decoded.
+- **Decoder comparison (10-08 to 10-10).** Same-image comparison of host decoders; the brightness sweep was stopped once real frames failed; the earlier optical setup was brought in as evidence; dual USB host aggregation became the architecture.
+- **Transport split (10-11 to 10-12).** QR moved to a TCP client while the board ran autonomous barcode output; deployment slimmed to two standalone programs; real UVC QR acceptance recorded over local TCP.
+- **Simplification (10-15 to 10-16).** QR reduced to continuous current-frame streaming, and the host workflow cut back to what a run actually needs.

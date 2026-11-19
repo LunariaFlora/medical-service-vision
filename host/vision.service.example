@@ -1,0 +1,18 @@
+[Unit]
+Description=H7 scan collector
+After=local-fs.target
+
+[Service]
+Type=simple
+# Replace USERNAME and /opt/medical-service-vision with the actual account and directory.
+User=USERNAME
+SupplementaryGroups=dialout video
+WorkingDirectory=/opt/medical-service-vision
+ExecStart=/opt/medical-service-vision/host/.venv/bin/python /opt/medical-service-vision/host/app.py --config /opt/medical-service-vision/host/config.json
+# USB reconnect is handled inside app.py. A process restart starts a new mission.
+Restart=no
+TimeoutStopSec=20
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target

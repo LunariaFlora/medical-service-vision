@@ -58,7 +58,7 @@ Consecutive frames from one recording must not be reported as a success rate.
   supporting further blind sweeps of exposure or thresholds.
 * Keep the camera settings, and move to the **lossless USB GRAY8 path**: let the board send the
   original gray frame and decode it on the host. Back up the board's `main.py`, release the IDE's
-  hold on the port, and treat the USB link as unverified until it has been tried on real hardware.
+  hold on the port, and confirm the USB link end to end before relying on it in a run.
 * If original frames still fail, the next thing to examine is the actual lens and the imaging at a
   fixed mounting distance — not more screenshots and not more enlargements of them.
 

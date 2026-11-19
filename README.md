@@ -273,6 +273,13 @@ need the physical setup.
 
 ## 6. Board: H7 barcode channel
 
+Prebuilt bundles are committed under `firmware/deploy/`, so flashing needs no Python on the
+operator's machine. For normal operation copy `firmware/deploy/h7_bar_usb.py` to the board as
+`main.py`; see [`firmware/deploy/README.md`](firmware/deploy/README.md) for what each bundle is and
+for the flashing order.
+
+To rebuild them from source:
+
 ```sh
 python3 tools/build_standalone.py
 ```

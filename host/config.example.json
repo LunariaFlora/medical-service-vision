@@ -1,0 +1,8 @@
+{
+  "port": "/dev/serial/by-id/REPLACE_WITH_H7_DEVICE",
+  "preset_qr": "13",
+  "preview": false,
+  "output_dir": "../results",
+  "api_port": 8765,
+  "qr_camera": null
+}

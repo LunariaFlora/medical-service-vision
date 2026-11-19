@@ -11,6 +11,7 @@ They exist so that flashing does not require Python on the operator's machine.
 | `h7_bar_usb.py` | H7 | USB virtual COM (payload lines) | The firmware used with the TCP/line receiver: one decode per frame, writes `payload + "\r\n"`. **Rename to `main.py` on the board for normal operation.** |
 | `h7_usb_results.py` | H7 | USB virtual COM (RCD1 frames) | Result frames with metadata instead of plain payload lines. |
 | `h7_scan_uart.py` | H7 | UART | Bench bundle with the UART output module compiled in. |
+| `h7_scan_test.py` | H7 | none | Bench test on the H7 with no output transport: both decoders run on the same frame. |
 | `openmv_scan_test.py` | OpenMV-class | none | Bench test: QR and Code128 on the same frame, no output transport. |
 | `openmv_scan_uart.py` | OpenMV-class | UART | Same bench flow with UART output. |
 | `openmv_scan_demo.py` | OpenMV-class | none | Older demo flow kept for comparison. |
